@@ -2,5 +2,6 @@
   <Project Path="Binding/Binding.csproj" Id="313e6657-4080-4391-b140-8fc642d5603e" />
   <Project Path="Grid/Grid.csproj" Id="4236cb72-a282-46d5-a1b0-77f39450fa88" />
   <Project Path="ListBox/ListBox.csproj" Id="dfc8fda3-a63c-45ce-97c0-52413b1c8597" />
+  <Project Path="MenuBar/MenuBar.csproj" Id="a818b752-a047-44b6-90ae-4debc923c0f6" />
   <Project Path="WPF/WPF.csproj" />
 </Solution>
