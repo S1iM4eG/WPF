@@ -10,6 +10,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace Binding
 {
     /// <summary>
@@ -24,19 +26,20 @@ namespace Binding
             set
             {
                 boundText = value;
-                OnPropertyChanged();
-                txtInput.Focus();
+                OnPropertyChanged(nameof(BoundText));
+               
             }
         }
         public MainWindow()
         {
             DataContext = this;
             InitializeComponent();
+            txtInput.Focus();
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged()
+        void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BoundText"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void btnDefault_Click(object sender, RoutedEventArgs e)
