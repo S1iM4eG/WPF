@@ -25,27 +25,28 @@ namespace ListBox
             switch((sender as Button).Content)
             {
                 case "ADD":
-                    if (!ListBox.Items.Contains(tbInput.Text))
+                    if (!listBox.Items.Contains(tbInput.Text))
                     {
                         if (tbInput.Text.Trim() == "") break;
-                        ListBox.Items.Add(tbInput.Text);
+                        listBox.Items.Add(tbInput.Text);
                         tbInput.Text = "";
                         tbInput.Focus();
                     }
                     break;
                 case "DEL":
-                    if (ListBox.SelectedIndex >= 0)
-                        ListBox.Items.RemoveAt(ListBox.SelectedIndex);
+                    if (listBox.SelectedIndex >= 0)
+                        listBox.Items.RemoveAt(listBox.SelectedIndex);
                     break;
-                case "CLR": ListBox.Items.Clear(); 
+                case "CLR": listBox.Items.Clear(); 
                     break;
             }
         }
 
 
-        private void TbInput_KeyDown(object sender, KeyEventArgs e)
+        private void KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter) button_Click(btnAdd, null);
+            if (sender is TextBox && e.Key == Key.Enter) button_Click(btnAdd, null);
+            if (sender is System.Windows.Controls.ListBox && e.Key == Key.Delete) button_Click(btnDel, null);
         }
     }
 }
